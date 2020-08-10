@@ -32,7 +32,7 @@ Usage
 * `<config>` should point to the config file for the HomematicIP API access. This file can be generated using the `hmip_generate_auth_token.py` of the homematic package found at `https://github.com/coreGreenberet/homematicip-rest-api`.
 * `<port>` the port at which the prometheus metrics will be exposed
 * At the moment there are two possible options `--wait` is the waiting time between HomematicIP polls and `--print/--no-print` which prints the read sensor data to stdout.
-
++ The metrics that are exposed are *temperature_gauge_c* and *humidity_gauge_percent*. Both have the labels *room*, *device_name* and *device_type* for further filtering.
 
 Credits
 -------
