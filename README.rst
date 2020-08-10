@@ -2,31 +2,36 @@
 HomematicIP Tracking
 ====================
 
-
-.. image:: https://img.shields.io/pypi/v/homematicip_tracking.svg
-        :target: https://pypi.python.org/pypi/homematicip_tracking
-
-.. image:: https://img.shields.io/travis/Emrys-Merlin/homematicip_tracking.svg
-        :target: https://travis-ci.com/Emrys-Merlin/homematicip_tracking
-
-.. image:: https://readthedocs.org/projects/homematicip-tracking/badge/?version=latest
-        :target: https://homematicip-tracking.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
-
-
-
-
-Track the temperature metrics of homematic ip smart home sensors and expose them prometheus metrics
+Track the temperature and humidity of a HomematicIP smart home and expose them as prometheus metrics
 
 
 * Free software: MIT license
-* Documentation: https://homematicip-tracking.readthedocs.io.
 
 
-Features
---------
+Installation
+------------
+So far this project only exists on github and you can simply clone and install it as follows:
 
-* TODO
+.. code-block:: Shell
+
+   git clone git@github.com:Emrys-Merlin/homematicip_tracking.git
+   cd homematic_tracking
+   pip install -r requirements.txt
+   pip install -e .
+
+
+Usage
+-----
+
+* The above installation gives you access to the shell command `homematicip_tracking` which polls the HomematicIP sensors and exposes the metrics.
+
+.. code-block:: Shell
+   homematicip_tracking <config> <port> [<options>]
+
+* `<config>` should point to the config file for the HomematicIP API access. This file can be generated using the `hmip_generate_auth_token.py` of the homematic package found at `https://github.com/coreGreenberet/homematicip-rest-api`.
+* `<port>` the port at which the prometheus metrics will be exposed
+* At the moment there are two possible options `--wait` is the waiting time between HomematicIP polls and `--print/--no-print` which prints the read sensor data to stdout.
+
 
 Credits
 -------
