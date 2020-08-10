@@ -26,6 +26,7 @@ Usage
 * The above installation gives you access to the shell command `homematicip_tracking` which polls the HomematicIP sensors and exposes the metrics.
 
 .. code-block:: Shell
+
    homematicip_tracking <config> <port> [<options>]
 
 * `<config>` should point to the config file for the HomematicIP API access. This file can be generated using the `hmip_generate_auth_token.py` of the homematic package found at `https://github.com/coreGreenberet/homematicip-rest-api`.
