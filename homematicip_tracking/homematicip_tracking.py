@@ -50,20 +50,30 @@ class HomematiIP():
                     'device_type': device.modelType,
                     })
 
+                # Is it a thermostat
                 if 'TH' in device.modelType:
                     row['device_temperature'] = device.actualTemperature
                     row['device_humidity'] = device.humidity
+
+                    # Check if the sensor is an outside sensor
+                    # Put it in a separate room, if yes
+                    if 'STHO' in device.modelType:
+                        row['group'] = 'Outside'
+                        label = 'Outside'
+                    else:
+                        label = group.label
                     self.temperature.labels(
-                        room=group.label,
+                        room=label,
                         device_name=device.label,
                         device_type=device.modelType,
                     ).set(device.actualTemperature)
                     self.humidity.labels(
-                        room=group.label,
+                        room=label,
                         device_name=device.label,
                         device_type=device.modelType,
                     ).set(device.humidity)
 
+                # Is it a valve
                 if 'TRV' in device.modelType:
                     row['device_temperature'] = device.valveActualTemperature
                     self.temperature.labels(
