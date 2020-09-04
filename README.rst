@@ -34,6 +34,11 @@ Usage
 * At the moment there are two possible options `--wait` is the waiting time between HomematicIP polls and `--print/--no-print` which prints the read sensor data to stdout.
 + The metrics that are exposed are *temperature_gauge_c* and *humidity_gauge_percent*. Both have the labels *room*, *device_name* and *device_type* for further filtering.
 
+Example Grafana Dashboard
+-------------------------
+.. image:: ./homematic-dashboard-example.png
+   :alt: Image of a Grafana dashboard using the data exposed by this script.
+
 Credits
 -------
 
